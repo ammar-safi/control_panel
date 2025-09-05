@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ResumeEducation extends Model
 {
-    use HasFactory;
+    use HasFactory ;
 
     /**
      * The attributes that are mass assignable.
