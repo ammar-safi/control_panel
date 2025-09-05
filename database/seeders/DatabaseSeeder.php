@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                 'phone_number' => '0988845619',
                 'public_key' => null,
                 'created_at' => now(),
-                'updated_at' => now(),
+                'updated_at' => null,
             ]
         );
         \App\Models\User::factory(10)->create();
