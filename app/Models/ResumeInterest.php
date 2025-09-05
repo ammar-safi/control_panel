@@ -30,7 +30,7 @@ class ResumeInterest extends Model
         return [
             'id' => 'integer',
             'resume_id' => 'integer',
-            'interested_in' => 'integer',
+            'interested_in' => 'string',
             'updated_at' => 'timestamp',
             'created_at' => 'timestamp',
             'deleted_at' => 'timestamp',

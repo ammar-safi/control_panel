@@ -131,7 +131,7 @@ models:
   ResumeInterest:
     id: id
     resume_id: bigInteger foreign:resumes.id
-    interested_in: bigInteger
+    interested_in: string
     updated_at: timestamp nullable
     created_at: timestamp nullable
     deleted_at: timestamp nullable
