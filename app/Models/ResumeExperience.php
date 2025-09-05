@@ -47,4 +47,9 @@ class ResumeExperience extends Model
     {
         return $this->belongsTo(Resume::class);
     }
+
+    public function resumeProjects(): HasMany
+    {
+        return $this->hasMany(ResumeProject::class);
+    }
 }
