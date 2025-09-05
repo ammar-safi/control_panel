@@ -30,7 +30,7 @@ class ResumeVolunteer extends Model
         return [
             'id' => 'integer',
             'resume_id' => 'integer',
-            'volunteer' => 'integer',
+            'volunteer' => 'string',
             'updated_at' => 'timestamp',
             'created_at' => 'timestamp',
             'deleted_at' => 'timestamp',

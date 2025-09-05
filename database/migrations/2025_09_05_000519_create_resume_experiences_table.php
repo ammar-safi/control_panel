@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('resume_experiences', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('resume_id');
+            $table->unsignedBigInteger('resume_id');
             $table->foreign('resume_id')->references('id')->on('resumes');
             $table->string('company_name');
             $table->string('location')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('job_title');
             $table->date('start_date');
             $table->date('end_date')->nullable();
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

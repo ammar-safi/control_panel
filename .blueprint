@@ -51,5 +51,5 @@ models:
     ResumeSkill: { id: id, resume_id: 'bigInteger foreign:resumes.id', skill: string, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
     ResumeLanguage: { id: id, resume_id: 'bigInteger foreign:resumes.id', language: string, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
     ResumeProject: { id: id, resume_experiences_id: 'bigInteger foreign:resume_experiences.id', project: longText, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
-    ResumeVolunteer: { id: id, resume_id: 'bigInteger foreign:resumes.id', volunteer: bigInteger, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
-    ResumeInterest: { id: id, resume_id: 'bigInteger foreign:resumes.id', interested_in: bigInteger, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeVolunteer: { id: id, resume_id: 'bigInteger foreign:resumes.id', volunteer: string, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeInterest: { id: id, resume_id: 'bigInteger foreign:resumes.id', interested_in: string, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }

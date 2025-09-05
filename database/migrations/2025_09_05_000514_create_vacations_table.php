@@ -20,11 +20,11 @@ return new class extends Migration
             $table->enum('type', ["emergency","maternity","hourly","daily","monthly"]);
             $table->enum('status', ["pending","approved","rejected"])->default('pending');
             $table->text('reject_reason')->nullable();
-            $table->bigInteger('admin_id');
+            $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')->references('id')->on('users');
-            $table->bigInteger('employee_id');
+            $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('users');
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

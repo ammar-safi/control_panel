@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('resume_education', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('resume_id');
+            $table->unsignedBigInteger('resume_id');
             $table->foreign('resume_id')->references('id')->on('resumes');
             $table->string('institution_name');
             $table->enum('degree', ["Bachelors","Master","phd"])->nullable()->default('Bachelors');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('end_year')->nullable();
             $table->string('gpa')->nullable();
             $table->string('location')->nullable();
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

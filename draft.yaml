@@ -6,7 +6,7 @@ models:
   #       last_name: string
   #       email: string unique
   #       phone_number: string unique
-  #       type: enum:"employee","admin","supervisor" default:"employee"
+  #       type: enum:"employee","admin" default:"employee"
   #       public_key: longText
   #       email_verified_at: timestamp nullable
   #       remember_token: string nullable
@@ -124,14 +124,14 @@ models:
   ResumeVolunteer:
     id: id
     resume_id: bigInteger foreign:resumes.id
-    volunteer: bigInteger
+    volunteer: string
     updated_at: timestamp nullable
     created_at: timestamp nullable
     deleted_at: timestamp nullable
   ResumeInterest:
     id: id
     resume_id: bigInteger foreign:resumes.id
-    interested_in: bigInteger
+    interested_in: string
     updated_at: timestamp nullable
     created_at: timestamp nullable
     deleted_at: timestamp nullable

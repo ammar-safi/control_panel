@@ -15,12 +15,12 @@ return new class extends Migration
 
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->longText('name')->unique();
+            $table->string('name' , 500)->unique();
             $table->longText('path');
             $table->boolean('is_readable');
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

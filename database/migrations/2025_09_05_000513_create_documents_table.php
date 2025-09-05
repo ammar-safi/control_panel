@@ -15,13 +15,13 @@ return new class extends Migration
 
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->enum('type', ["report","certificate","contract"])->default('report');
             $table->longText('path');
             $table->boolean('protected');
             $table->boolean('signed');
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

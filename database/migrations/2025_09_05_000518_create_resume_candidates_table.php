@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('resume_candidates', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('resume_id');
+            $table->unsignedBigInteger('resume_id');
             $table->foreign('resume_id')->references('id')->on('resumes');
             $table->string('first_name');
             $table->string('last_name');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('linkedin_url')->nullable();
             $table->string('github_url')->nullable();
             $table->string('portfolio_url')->nullable();
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

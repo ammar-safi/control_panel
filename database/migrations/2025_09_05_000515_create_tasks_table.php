@@ -19,11 +19,11 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->enum('status', ["pending","working_on_it","finished","wont_do"])->default('pending');
             $table->enum('type', ["user_story","task","test","review"])->default('task');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('assigned_by');
+            $table->unsignedBigInteger('assigned_by');
             $table->foreign('assigned_by')->references('id')->on('users');
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

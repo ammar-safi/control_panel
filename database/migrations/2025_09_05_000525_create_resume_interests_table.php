@@ -15,10 +15,10 @@ return new class extends Migration
 
         Schema::create('resume_interests', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('resume_id');
+            $table->unsignedBigInteger('resume_id');
             $table->foreign('resume_id')->references('id')->on('resumes');
-            $table->bigInteger('interested_in');
-            $table->softDelete();
+            $table->string('interested_in');
+            $table->softDeletes();
             $table->timestamps();
         });
 
