@@ -1,2 +1,55 @@
+created:
+    - database/factories/DocumentFactory.php
+    - database/factories/VacationFactory.php
+    - database/factories/TaskFactory.php
+    - database/factories/DepartmentFactory.php
+    - database/factories/ResumeFactory.php
+    - database/factories/ResumeCandidateFactory.php
+    - database/factories/ResumeExperienceFactory.php
+    - database/factories/ResumeEducationFactory.php
+    - database/factories/ResumeSkillFactory.php
+    - database/factories/ResumeLanguageFactory.php
+    - database/factories/ResumeProjectFactory.php
+    - database/factories/ResumeVolunteerFactory.php
+    - database/factories/ResumeInterestFactory.php
+    - database/migrations/2025_09_05_000513_create_documents_table.php
+    - database/migrations/2025_09_05_000514_create_vacations_table.php
+    - database/migrations/2025_09_05_000515_create_tasks_table.php
+    - database/migrations/2025_09_05_000516_create_departments_table.php
+    - database/migrations/2025_09_05_000517_create_resumes_table.php
+    - database/migrations/2025_09_05_000518_create_resume_candidates_table.php
+    - database/migrations/2025_09_05_000519_create_resume_experiences_table.php
+    - database/migrations/2025_09_05_000520_create_resume_education_table.php
+    - database/migrations/2025_09_05_000521_create_resume_skills_table.php
+    - database/migrations/2025_09_05_000522_create_resume_languages_table.php
+    - database/migrations/2025_09_05_000523_create_resume_projects_table.php
+    - database/migrations/2025_09_05_000524_create_resume_volunteers_table.php
+    - database/migrations/2025_09_05_000525_create_resume_interests_table.php
+    - app/Models/Document.php
+    - app/Models/Vacation.php
+    - app/Models/Task.php
+    - app/Models/Department.php
+    - app/Models/Resume.php
+    - app/Models/ResumeCandidate.php
+    - app/Models/ResumeExperience.php
+    - app/Models/ResumeEducation.php
+    - app/Models/ResumeSkill.php
+    - app/Models/ResumeLanguage.php
+    - app/Models/ResumeProject.php
+    - app/Models/ResumeVolunteer.php
+    - app/Models/ResumeInterest.php
 models:
     User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Document: { id: id, user_id: 'bigInteger foreign:users.id', type: 'enum:"report","certificate","contract" default:"report"', path: longText, protected: boolean, signed: boolean, created_at: 'timestamp nullable', updated_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    Vacation: { id: id, start_date: date, end_date: date, type: 'enum:"emergency","maternity","hourly","daily","monthly"', status: 'enum:"pending","approved","rejected" default:"pending"', reject_reason: 'text nullable', admin_id: 'bigInteger foreign:users.id', employee_id: 'bigInteger foreign:users.id', created_at: 'timestamp nullable', update_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    Task: { id: id, title: string, description: 'text nullable', status: 'enum:"pending","working_on_it","finished","wont_do" default:"pending"', type: 'enum:"user_story","task","test","review" default:"task"', user_id: 'bigInteger foreign:users.id', assigned_by: 'bigInteger foreign:users.id', created_at: 'timestamp nullable', updated_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    Department: { id: id, name: 'string unique', updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    Resume: { id: id, user_id: 'bigInteger nullable foreign:users.id', name: 'longText unique', path: longText, is_readable: boolean, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeCandidate: { id: id, resume_id: 'bigInteger foreign:resumes.id', first_name: string, last_name: string, email: string, phone: 'string nullable', location: 'string nullable', linkedin_url: 'string nullable', github_url: 'string nullable', portfolio_url: 'string nullable', updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeExperience: { id: id, resume_id: 'bigInteger foreign:resumes.id', company_name: string, location: 'string nullable', description: 'string nullable', job_title: string, start_date: date, end_date: 'date nullable', updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeEducation: { id: id, resume_id: 'bigInteger foreign:resumes.id', institution_name: string, degree: 'enum:"Bachelors","Master","phd" nullable default:"Bachelors"', Specialization: 'string nullable', start_year: date, end_year: 'date nullable', gpa: 'string nullable', location: 'string nullable', updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeSkill: { id: id, resume_id: 'bigInteger foreign:resumes.id', skill: string, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeLanguage: { id: id, resume_id: 'bigInteger foreign:resumes.id', language: string, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeProject: { id: id, resume_experiences_id: 'bigInteger foreign:resume_experiences.id', project: longText, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeVolunteer: { id: id, resume_id: 'bigInteger foreign:resumes.id', volunteer: bigInteger, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
+    ResumeInterest: { id: id, resume_id: 'bigInteger foreign:resumes.id', interested_in: bigInteger, updated_at: 'timestamp nullable', created_at: 'timestamp nullable', deleted_at: 'timestamp nullable' }
