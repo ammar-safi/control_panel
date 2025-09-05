@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('resume_id');
             $table->foreign('resume_id')->references('id')->on('resumes');
-            $table->str('volunteer');
+            $table->string('volunteer');
             $table->softDelete();
             $table->timestamps();
         });
