@@ -15,10 +15,10 @@ return new class extends Migration
 
         Schema::create('resume_projects', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('resume_experiences_id');
+            $table->unsignedBigInteger('resume_experiences_id');
             $table->foreign('resume_experiences_id')->references('id')->on('resume_experiences');
             $table->longText('project');
-            $table->softDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
 

@@ -17,14 +17,15 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone_number')->unique();
-            $table->enum('type', ['employee', 'admin', 'supervisor'])->default('employee');
+            $table->enum('type', ['employee', 'admin'])->default('employee');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->longText('public_key');
-            $table->unsignedBigInteger('department_id');
+            $table->longText('public_key')->nullable()
+            ;
+            $table->unsignedBigInteger('department_id')->nullable();
             $table->string('password');
-            $table->softDelete();
+            $table->softDeletes();
 
         });
     }
