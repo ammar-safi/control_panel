@@ -7,6 +7,7 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\Department;
 use App\Models\User;
+use Filament\Actions\Action as ActionsAction;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Forms;
@@ -31,7 +32,7 @@ class UserResource extends Resource
     protected static ?string $recordTitleAttribute = "users";
     protected static ?string $navigationIcon = "heroicon-o-users";
 
-    // protected static ?string $navigationGroup = "first";
+    protected static ?string $navigationGroup = "resources";
 
     // public static function getNavigationBadge(): ?string
     // {
