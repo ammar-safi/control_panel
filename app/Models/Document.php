@@ -33,17 +33,11 @@ class Document extends Model
     {
         return [
             'id' => 'integer',
-            'user_id' => 'integer',
             'protected' => 'boolean',
             'signed' => 'boolean',
             'created_at' => 'timestamp',
             'updated_at' => 'timestamp',
             'deleted_at' => 'timestamp',
         ];
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 }
