@@ -10,21 +10,7 @@ class Vacation extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'start_date',
-        'end_date',
-        'type',
-        'status',
-        'reject_reason',
-        'admin_id',
-        'employee_id',
-        'update_at',
-    ];
+
 
     /**
      * Get the attributes that should be cast.

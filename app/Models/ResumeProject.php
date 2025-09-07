@@ -40,9 +40,4 @@ class ResumeProject extends Model
     {
         return $this->belongsTo(ResumeExperience::class);
     }
-
-    public function resumeExperiences(): BelongsTo
-    {
-        return $this->belongsTo(ResumeExperience::class);
-    }
 }

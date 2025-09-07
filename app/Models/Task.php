@@ -8,21 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Task extends Model
 {
-    use HasFactory;
+    use HasFactory , sofdelete;
+    //todo soft delete  fillable
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'title',
-        'description',
-        'status',
-        'type',
-        'user_id',
-        'assigned_by',
-    ];
 
     /**
      * Get the attributes that should be cast.
