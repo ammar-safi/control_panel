@@ -25,6 +25,8 @@ class DocumentResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('name')
+                    ->required(),
                 Forms\Components\TextInput::make('type')
                     ->required(),
                 Forms\Components\FileUpload::make('path')
@@ -43,15 +45,12 @@ class DocumentResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('type'),
                 Tables\Columns\IconColumn::make('protected')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('signed')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -22,7 +22,8 @@ class DocumentFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
+            // 'user_id' => User::factory(),
+            'name' => fake()->name(),
             'type' => fake()->randomElement(["report","certificate","contract"]),
             'path' => fake()->text(),
             'protected' => fake()->boolean(),
